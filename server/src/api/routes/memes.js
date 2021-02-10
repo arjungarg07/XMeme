@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { Meme } = require('../../models');
 
 const Memes = require('../../services/Memes');
 
@@ -24,6 +25,17 @@ route.get('/memes/:id', async (req, res)=> {
     }catch(err){
         console.log(err);
         res.send({ status: 0, msg: 'Failed to fetch Meme of given id'});
+    }
+})
+
+route.delete('/memes/:id', async (req, res)=> {
+    const { id } = req.params;
+    try{
+        await Memes.deleteMemeById(id);
+        res.send({ status: 1, msg: 'Successfully deleted Meme of given id'});
+    }catch(err){
+        console.log(err);
+        res.send({ status: 0, msg: 'Failed to delete Meme of given id'});
     }
 })
 

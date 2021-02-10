@@ -20,6 +20,17 @@ class Memes {
         }
         return result;
     }
+
+    async deleteMemeById (id) {
+        const result = await Meme.update({ active : 0}, {
+            where: {
+                id: id,
+                active: 1
+            }
+        });
+        console.log(result);
+        return;
+    }
 }
 
 module.exports = new Memes();
