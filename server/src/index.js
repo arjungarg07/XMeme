@@ -1,20 +1,20 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 require('dotenv').config();
+const loaders = require('./loaders/index');
+const express = require('express');
 
-require('./models/index');
-// const router = require('./routes/index');
+const PORT = require('./config/index').port || 8080;
 
-const app = express();
-const PORT = process.env.PORT || 8080;
+async function startServer() {
+  const app = express();
+  await loaders({ expressApp: app });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true,}));
-app.use(cors());
+  app.listen(PORT, err => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(`Server is ready!`, PORT);
+  });
+}
 
-// app.use('/', router);
-
-app.listen(PORT, () => {
-	console.log(`Server Listening on ${PORT}`);
-});
+startServer();
