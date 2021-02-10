@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { Meme } = require('../../models');
+const { getAllMemes } = require('../../services/Memes');
 
 const Memes = require('../../services/Memes');
 
@@ -16,6 +17,16 @@ route.post('/memes', async (req, res)=>{
         res.send({ status: 0, msg: 'Failed to add Meme to Collection'});
     }
 });
+
+route.get('/memes', async (req,res)=> {
+    try{
+        const result = await getAllMemes();
+        res.send({ status:1, msg: 'Successfully fetched all Memes', result});
+    }catch(err){
+        console.log(err);
+        res.send({ status:0, msg: 'Failed to fetch Memes'});
+    }
+})
 
 route.get('/memes/:id', async (req, res)=> {
     const { id } = req.params;

@@ -44,6 +44,17 @@ class Memes {
                 active: 1
             }
           });
+          return;
+    }
+
+    async getAllMemes () {
+        const result = await Meme.findAll({
+            where: {
+                active: 1
+            }
+          });
+        // console.log('yeh aara result', result);
+        return result;
     }
 }
 
