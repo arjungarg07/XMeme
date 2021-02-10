@@ -10,7 +10,5 @@ module.exports = async ({ app }) => {
     app.use(cors());
     app.use(bodyParser.urlencoded({extended: true,}));
     app.use('/', routes);
-
-
     return app;
 }

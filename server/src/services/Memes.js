@@ -12,6 +12,14 @@ class Memes {
         const res = await Meme.create(data);
         console.log(res);
     }
+
+    async getMemeById (id) {
+        const result = await Meme.findOne({ where: { id: id, active: 1 } });
+        if(!result){
+            console.log('Meme not found');
+        }
+        return result;
+    }
 }
 
 module.exports = new Memes();
