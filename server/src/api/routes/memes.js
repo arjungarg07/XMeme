@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const { Meme } = require('../../models');
 const { getAllMemes } = require('../../services/Memes');
 
 const Memes = require('../../services/Memes');
