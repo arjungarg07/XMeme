@@ -14,7 +14,11 @@ class Memes {
     }
 
     async getMemeById (id) {
-        const result = await Meme.findOne({ where: { id: id, active: 1 } });
+        const result = await Meme.findOne({
+             where: { 
+                 id: id,
+                 active: 1 
+            } });
         if(!result){
             console.log('Meme not found');
         }
@@ -30,6 +34,16 @@ class Memes {
         });
         console.log(result);
         return;
+    }
+
+    async updateMeme (id, data) {
+        const { name, caption, url } = data;
+        await Meme.update({ ...(caption && {caption}), ...(url && {url}) }, {
+            where: {
+                id: id,
+                active: 1
+            }
+          });
     }
 }
 
