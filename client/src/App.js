@@ -1,14 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import MemeForm from './components/memeForm';
-import Header from './components/header';
-import Meme from './components/meme';
+import Meme from './components/Meme';
 
 function App() {
   return (
     <div className = 'container'>
-    <Header/>
-    <MemeForm/>
     <Meme/>
     </div>
   );
