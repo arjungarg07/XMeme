@@ -7,7 +7,7 @@ const MemesList = ({ list, selectMeme, deleteMeme }) => (
 		{list && list.length > 0 ? (
 			list.map((details, index) => (
 				<Meme
-					selectIssue = {selectMeme}
+					selectMeme = {selectMeme}
 					details = {details}
 					key = {index}
 					deleteMeme = {deleteMeme}
