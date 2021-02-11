@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import MemeForm from './components/memeForm';
 import Header from './components/header';
 import Meme from './components/meme';
