@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Meme from './components/Meme';
+import MemesContent from './components/MemesContent';
 
 function App() {
   return (
     <div className = 'container'>
-    <Meme/>
+    <MemesContent/>
     </div>
   );
 }
