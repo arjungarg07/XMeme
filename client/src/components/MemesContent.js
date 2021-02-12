@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import MemesList from './MemesList';
 import Header from './header';
 import MemeForm from './memeForm';
+import Meme from './Meme';
+
 
 import {
 	getAllMemes,
@@ -28,13 +30,33 @@ export default class MemesContent extends Component {
 		this.setState({
 			loading: true,
 		})
+		let list = [];
+		list = await getAllMemes();
+		this.setState({
+			list,
+			loading: false
+		})
 	}
+
+	closeModal = () => {
+		this.setState({
+			showModal: false,
+		});
+	};
+
+	selectMeme = (meme) => {
+		this.setState({
+			selected: meme,
+			showModal: true,
+		});
+	};
 
 	render() {
 		const { currentPage, list, loading, selected, showModal, totalPages} = this.state;
 		return (
-			<div className = 'container'>
+			<div >
 				<Header/>
+				<div className = 'container'>
 				<MemeForm/>
 				{loading ? (
 					<div className="py-72 bg-gray-100">
@@ -54,6 +76,7 @@ export default class MemesContent extends Component {
 						/>
 					</>
 				)}
+				</div>
 			</div>
 		)
 	}

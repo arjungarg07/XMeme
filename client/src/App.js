@@ -4,7 +4,7 @@ import MemesContent from './components/MemesContent';
 
 function App() {
   return (
-    <div className = 'container'>
+    <div >
     <MemesContent/>
     </div>
   );

@@ -1,18 +1,18 @@
 import React from "react";
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button';
 
 const Meme = () => (
-    <div className = 'flex-col'>
-        <div className = 'flex flex-row '>
-            <div className ='font-bold'>Rahul Bansal</div>
-            <div>Created at: 11:59 AM</div>
-        </div>
-        <div>
-            Caption here
-        </div>
-        <div>
-            <img className='h-27 w-1/3 ' src ='https://ichef.bbci.co.uk/images/ic/1056xn/p072ms67.jpg' alt='Meme here'></img>
-        </div>
-    </div>
+<Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="https://filmdaily.co/wp-content/uploads/2020/07/cleanmeme-lede-1300x1244.jpg" />
+  <Card.Body>
+    <Card.Title>Rahul Manu</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+    </Card.Text>
+    <Button variant="primary">Edit</Button>
+  </Card.Body>
+</Card>
 )
 
 export default Meme;
