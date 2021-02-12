@@ -32,11 +32,44 @@ export default class MemesContent extends Component {
 		})
 		let list = [];
 		list = await getAllMemes();
+		console.log(list);
 		this.setState({
 			list,
 			loading: false
 		})
 	}
+
+	handleSubmit = async (data) => {
+		this.setState({
+			loading: true,
+			// isNew: false,
+			showModal: false,
+		});
+		// const { success, message } = id
+		// 	? await editIssue(id, data)
+		// 	: await createIssue(data);
+		console.log('memecontent handle',data);
+		const { id } = await createMeme(data);
+		console.log('id =>',id);
+		if (!id) {
+			this.setState({
+				loading: false,
+			});
+			return alert('Internal Error');
+		}
+		
+		const list = await getAllMemes();
+		if (!list) {
+			this.setState({
+				loading: false,
+			});
+			return alert('Internal Error');
+		}
+		this.setState({
+			loading: false,
+			list,
+		});
+	};
 
 	closeModal = () => {
 		this.setState({
@@ -57,7 +90,9 @@ export default class MemesContent extends Component {
 			<div >
 				<Header/>
 				<div className = 'container'>
-				<MemeForm/>
+				<MemeForm 
+					handleSubmit={this.handleSubmit}
+				/>
 				{loading ? (
 					<div className="py-72 bg-gray-100">
 						<img

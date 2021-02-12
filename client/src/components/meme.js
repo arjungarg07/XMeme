@@ -2,13 +2,13 @@ import React from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 
-const Meme = () => (
+const Meme = ( { details: { id, name, url, caption }}) => (
 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="https://filmdaily.co/wp-content/uploads/2020/07/cleanmeme-lede-1300x1244.jpg" />
+  <Card.Img variant="top" src = { url } />
   <Card.Body>
-    <Card.Title>Rahul Manu</Card.Title>
+    <Card.Title>{ name }</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
+      { caption }
     </Card.Text>
     <Button variant="primary">Edit</Button>
   </Card.Body>

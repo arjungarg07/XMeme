@@ -7,7 +7,7 @@ const route = Router();
 
 route.post('/memes', async (req, res)=>{
     const data = req.body;
-    // console.log(req.body);
+    console.log('REQUEST BODY ',req.body);
     try{
         const  id = await Memes.addMemeToCollection(data);
         res.send({ id: id });
@@ -20,7 +20,7 @@ route.post('/memes', async (req, res)=>{
 route.get('/memes', async (req,res)=> {
     try{
         const result = await getAllMemes();
-        res.send({ status:1, msg: 'Successfully fetched all Memes', result});
+        res.json(result);
     }catch(err){
         console.log(err);
         res.send({ status:0, msg: 'Failed to fetch Memes'});
