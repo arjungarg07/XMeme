@@ -30,11 +30,11 @@ route.get('/memes', async (req,res)=> {
 route.get('/memes/:id', async (req, res)=> {
     const { id } = req.params;
     try{
-        const result = await Memes.getMemeById(id);
-        res.send({ status: 1, msg: "Successfully fetch Meme of given id", result });
+        const { status, result } = await Memes.getMemeById(id);
+        status == -1 ? res.sendStatus(404) : res.json(result);
     }catch(err){
         console.log(err);
-        res.send({ status: 0, msg: 'Failed to fetch Meme of given id'});
+        res.sendStatus(500);
     }
 })
 

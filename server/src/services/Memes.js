@@ -18,11 +18,14 @@ class Memes {
              where: { 
                  id: id,
                  active: 1 
-            } });
+            },
+            attributes: ['id', 'name', 'url', 'caption']
+        });
         if(!result){
             console.log('Meme not found');
+            return { status: -1 , result };
         }
-        return result;
+        return { status: 1, result };
     }
 
     async deleteMemeById (id) {
@@ -51,9 +54,13 @@ class Memes {
         const result = await Meme.findAll({
             where: {
                 active: 1
-            }
+            },
+            limit: 100,
+            order: [
+                ['id', 'DESC'],
+            ],
+            attributes: ['id', 'name', 'url', 'caption']
           });
-        // console.log('yeh aara result', result);
         return result;
     }
 }
