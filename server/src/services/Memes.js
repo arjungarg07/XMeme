@@ -6,11 +6,11 @@ class Memes {
     }
 
     async addMemeToCollection (data) {
-        const { name, caption, url } = data;
+        // const { name, caption, url } = data;
         // valid url regex
-        console.log('Service inside');
-        const res = await Meme.create(data);
-        console.log(res);
+        const { dataValues: { id }  } = await Meme.create(data);
+        // console.log(id);
+        return id;
     }
 
     async getMemeById (id) {
