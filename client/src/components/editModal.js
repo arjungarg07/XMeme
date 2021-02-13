@@ -23,12 +23,12 @@ class EditModal extends Component {
 
   handleSubmit = () => {
     const { url, caption, id } = this.state;
-    this.props.handleEdit({ url,caption, id });
+    this.props.handleEdit({ url, caption, id });
   };
 
   handleDelete = (id) => {
-      this.props.deleteMeme(id);
-  }
+    this.props.deleteMeme(id);
+  };
 
   render() {
     const { closeModal } = this.props;
@@ -50,7 +50,7 @@ class EditModal extends Component {
                   Owner :-
                 </label>
                 <br />
-                <div className = "">{name}</div>
+                <div className="">{name}</div>
               </div>
               <div>
                 <label htmlFor="caption" className="font-bold">
