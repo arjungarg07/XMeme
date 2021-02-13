@@ -1,12 +1,15 @@
 import { customFetch } from "../custom-lib";
 
+// const HOST = '';
+const HOST = 'http://localhost:8080';
+
 export const getAllMemes = (params) =>
   customFetch(
-    "http://localhost:8080/memes?" + new URLSearchParams(params).toString()
+    `${HOST}/memes?` + new URLSearchParams(params).toString()
   );
 
 export const createMeme = (params) =>
-  customFetch(`http://localhost:8080/memes`, {
+  customFetch(`${HOST}/memes`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -16,7 +19,7 @@ export const createMeme = (params) =>
   });
 
 export const editMeme = (id, params) =>
-  customFetch(`http://localhost:8080/memes/${id}`, {
+  customFetch(`${HOST}/memes/${id}`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -26,9 +29,8 @@ export const editMeme = (id, params) =>
   });
 
 export const deleteMeme = (id) =>
-  customFetch(`http://localhost:8080/memes/${id}`, {
+  customFetch(`${HOST}/memes/${id}`, {
     mode: "cors",
     method: "DELETE",
   });
 
-// export * from './dummyApis';

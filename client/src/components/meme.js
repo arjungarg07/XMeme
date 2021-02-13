@@ -5,10 +5,10 @@ const Meme = ({
   details: { id, name, url, caption },
   selectMeme,
 }) => (
-  <div className="flex cursor-pointer" onClick={() => {
+  <div onClick={() => {
     selectMeme({ id, name, url, caption });
   }}>
-    <Card style={{ width: "18rem" }}>
+    <Card className = "cursor-pointer" style={{ width: "18rem" }}>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{caption}</Card.Text>

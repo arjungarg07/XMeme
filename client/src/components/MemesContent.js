@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import MemesList from './MemesList';
 import Header from './header';
 import MemeForm from './memeForm';
-import Meme from './Meme';
 import EditModal from './editModal'
 
 
@@ -18,12 +17,10 @@ import loaderSvg from '../assets/images/loader.svg';
 
 export default class MemesContent extends Component {
 	state = {
-		currentPage: 1,
 		list: [],
 		loading: false,
 		selected: undefined,
 		showModal: false,
-		totalPages: 1,
 	}
 
 	async componentDidMount() {
@@ -90,7 +87,6 @@ export default class MemesContent extends Component {
 			loading: true,
 			showModal:false
 		});
-
 		await deleteMeme(id);
 		const list = await getAllMemes();
 		if (!list) {
