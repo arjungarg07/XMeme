@@ -1,6 +1,6 @@
-const { Router } = require('express');
+const { Router } = require("express");
 
-const memes = require('./memes');
+const memes = require("./memes");
 
 const app = Router();
 
