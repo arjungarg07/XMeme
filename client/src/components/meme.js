@@ -9,7 +9,7 @@ const Meme = ({
   deleteMeme,
 }) => (
   <div>
-    <Card className="card mx-2.5 my-2.5" style={{ width: "30rem" }}>
+    <Card className="card mx-2.5 my-2.5" style={{ width: "28rem" }}>
       <Card.Body>
         <div className="flex flex-row items-baseline justify-between">
           <Card.Title>{name}</Card.Title>

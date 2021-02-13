@@ -24,7 +24,7 @@ class MemeForm extends Component {
           }}
         >
           <Form.Group className = "w-4/5" controlId="formBasicName">
-            <Form.Label>Meme Owner</Form.Label>
+            <Form.Label className = "font-bold">Meme Owner</Form.Label>
             <Form.Control
               type="text"
               name="owner"
@@ -33,7 +33,7 @@ class MemeForm extends Component {
           </Form.Group>
 
           <Form.Group className = "w-4/5" controlId="formBasicText">
-            <Form.Label>Caption</Form.Label>
+            <Form.Label className = "font-bold" >Caption</Form.Label>
             <Form.Control
               type="text"
               name="caption"
@@ -42,10 +42,10 @@ class MemeForm extends Component {
           </Form.Group>
 
           <div className="flex flex-row">
-            <Form.Group className = "w-4/5" controlId="formBasicURL">
+            <Form.Group className = "w-4/5 font-bold" controlId="formBasicURL">
               <Form.Label>Meme URL</Form.Label>
               <Form.Control
-                type="text"
+                type='url'
                 name="url"
                 placeholder="Enter URL of your meme here"
                 required
