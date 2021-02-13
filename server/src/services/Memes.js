@@ -24,7 +24,10 @@ class Memes {
     return { status: 1, id };
   }
 
-  async getMemeById(id) {
+  async getMemeById(unformatted_id) {
+    //Validation
+    const id = Number(unformatted_id);
+    if (Number.isNaN(id) || id < 1) return { status: -1 };
     const result = await Meme.findOne({
       where: {
         id: id,
@@ -40,7 +43,10 @@ class Memes {
   }
 
   // Implemented Soft Delete
-  async softDeleteMemeById(id) {
+  async softDeleteMemeById(unformatted_id) {
+    //Validation
+    const id = Number(unformatted_id);
+    if (Number.isNaN(id) || id < 1) return { status: -1 };
     const result = await Meme.update(
       { active: 0 },
       {
@@ -50,10 +56,15 @@ class Memes {
         },
       }
     );
-    return;
+    return { status: 1 };
   }
 
-  async updateMeme(id, data) {
+  async updateMeme(unformatted_id, data) {
+    //Validation
+    const id = Number(unformatted_id);
+    if (Number.isNaN(id) || id < 1)
+    return { status: -1 };
+    
     const { caption, url } = data;
     await Meme.update(
       { ...(caption && { caption }), ...(url && { url }) }, // Short Circuit Evaluation Technique
@@ -64,7 +75,7 @@ class Memes {
         },
       }
     );
-    return;
+    return { status: 1 };
   }
 
   async getAllMemes() {
@@ -82,9 +93,10 @@ class Memes {
   async hardDeleteMemes() {
     const result = await Meme.destroy({
       where: {
-        active: 0
-      }
+        active: 0,
+      },
     });
+    return;
   }
 }
 

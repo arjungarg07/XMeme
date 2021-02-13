@@ -46,8 +46,8 @@ route.get("/memes/:id", async (req, res) => {
 route.delete("/memes/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    await Memes.softDeleteMemeById(id);
-    res.sendStatus(200);
+    const { status } = await Memes.softDeleteMemeById(id);
+    status == -1 ? res.sendStatus(400) : res.sendStatus(200);
   } catch (err) {
     console.log(err);
     // 500: Internal Server Error
@@ -60,8 +60,8 @@ route.patch("/memes/:id", async (req, res) => {
   const { id } = req.params;
   const data = req.body;
   try {
-    await Memes.updateMeme(id, data);
-    res.sendStatus(200);
+    const { status } = await Memes.updateMeme(id, data);
+    status == -1 ? res.sendStatus(400) : res.sendStatus(200); 
   } catch (err) {
     console.log(err);
     // 500: Internal Server Error
