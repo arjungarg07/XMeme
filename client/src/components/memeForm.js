@@ -9,14 +9,11 @@ class MemeForm extends Component {
   }
 
   handleSubmit = (e) => {
-    // console.log(e.target[1].value);
       const data = {
         name :  e.target[0].value,
         url :  e.target[2].value,
         caption :  e.target[1].value,
       }
-    
-    console.log(data);
     this.props.handleSubmit(data);
     document.getElementById("meme-form").reset();
   };
@@ -24,13 +21,13 @@ class MemeForm extends Component {
   render() {
     return (
       <div>
-        <Form id = "meme-form"
+        <Form className = "container" id = "meme-form"
           onSubmit={(e) => {
             e.preventDefault();
             this.handleSubmit(e);
           }}
         >
-          <Form.Group controlId="formBasicName">
+          <Form.Group className = "w-4/5" controlId="formBasicName">
             <Form.Label>Meme Owner</Form.Label>
             <Form.Control
               type="text"
@@ -39,7 +36,7 @@ class MemeForm extends Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicText">
+          <Form.Group className = "w-4/5" controlId="formBasicText">
             <Form.Label>Caption</Form.Label>
             <Form.Control
               type="text"
@@ -49,7 +46,7 @@ class MemeForm extends Component {
           </Form.Group>
 
           <div className="flex flex-row">
-            <Form.Group controlId="formBasicURL">
+            <Form.Group className = "w-4/5" controlId="formBasicURL">
               <Form.Label>Meme URL</Form.Label>
               <Form.Control
                 type="text"
@@ -59,7 +56,7 @@ class MemeForm extends Component {
               />
             </Form.Group>
 
-            <Button className = 'h-1/3 my-8' variant="primary" type="submit">
+            <Button className = 'h-1/3 my-8 mx-3.5' variant="primary" type="submit">
               Submit
             </Button>
           </div>

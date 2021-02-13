@@ -66,7 +66,7 @@ export default class MemesContent extends Component {
 			this.setState({
 				loading: false,
 			});
-			return alert('Internal Error');
+			return alert(' (>_<) Internal Error');
 		}
 		
 		const list = await getAllMemes();
@@ -74,7 +74,7 @@ export default class MemesContent extends Component {
 			this.setState({
 				loading: false,
 			});
-			return alert('Internal Error');
+			return alert(' (>_<) Internal Error');
 		}
 		this.setState({
 			loading: false,
@@ -93,7 +93,7 @@ export default class MemesContent extends Component {
 			this.setState({
 				loading: false,
 			});
-			return alert('Internal Error');
+			return alert(' (>_<) Internal Error');
 		}
 		this.setState({
 			loading: false,
@@ -119,7 +119,7 @@ export default class MemesContent extends Component {
 		return (
 			<div >
 				<Header/>
-				<div className = 'container'>
+				<div>
 				{showModal && (
 					<EditModal
 						active={selected}

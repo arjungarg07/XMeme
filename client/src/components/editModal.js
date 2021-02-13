@@ -5,11 +5,11 @@ import { deleteMeme } from "../apiCalls/prodApis";
 class EditModal extends Component {
   constructor(props) {
     super(props);
-    const { active: { id, owner, caption, url } = {}, deleteMeme, closeModal } = props;
+    const { active: { id, name, caption, url } = {}, deleteMeme, closeModal } = props;
 
     this.state = {
       id,
-      owner,
+      name,
       caption,
       url,
       isEditable: false,
@@ -34,7 +34,7 @@ class EditModal extends Component {
 
   render() {
     const { closeModal } = this.props;
-    const { id, owner, caption, url, isEditable } = this.state;
+    const { id, name, caption, url, isEditable } = this.state;
     return (
       <>
         <form
@@ -52,7 +52,7 @@ class EditModal extends Component {
                   Owner :-
                 </label>
                 <br />
-                <div>{owner}</div>
+                <div className = "">{name}</div>
               </div>
               <div>
                 <label htmlFor="caption" className="font-bold">
