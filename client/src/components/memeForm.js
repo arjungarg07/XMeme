@@ -3,10 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 class MemeForm extends Component {
-  constructor(props) {
-    console.log(props);
-    super(props);
-  }
 
   handleSubmit = (e) => {
       const data = {

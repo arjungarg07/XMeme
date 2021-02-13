@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { deleteMeme } from "../apiCalls/prodApis";
 class EditModal extends Component {
   constructor(props) {
     super(props);
-    const { active: { id, name, caption, url } = {}, deleteMeme, closeModal } = props;
+    const { active: { id, name, caption, url } = {}, closeModal } = props;
 
     this.state = {
       id,
@@ -14,7 +13,6 @@ class EditModal extends Component {
       url,
       isEditable: true,
     };
-    // console.log('editModal',owner,caption,url);
   }
 
   onHandleChange = ({ target: { name, value } }) => {

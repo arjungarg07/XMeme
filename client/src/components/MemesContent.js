@@ -29,7 +29,6 @@ export default class MemesContent extends Component {
 		})
 		let list = [];
 		list = await getAllMemes();
-		console.log(list);
 		this.setState({
 			list,
 			loading: false
@@ -61,7 +60,6 @@ export default class MemesContent extends Component {
 			loading: true,
 		});
 		const { id } = await createMeme(data);
-		// console.log('id =>',id);
 		if (!id) {
 			this.setState({
 				loading: false,
