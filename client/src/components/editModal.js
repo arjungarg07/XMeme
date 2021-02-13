@@ -12,7 +12,7 @@ class EditModal extends Component {
       name,
       caption,
       url,
-      isEditable: false,
+      isEditable: true,
     };
     // console.log('editModal',owner,caption,url);
   }
@@ -86,23 +86,8 @@ class EditModal extends Component {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  this.setState({
-                    isEditable: true,
-                  });
-                }}
-              >
-                Edit
-              </Button>
               <Button variant="primary" onClick={this.handleSubmit}>
                 Save Changes
-              </Button>
-              <Button variant="primary" onClick={()=> {
-                  this.handleDelete(id)
-              }}>
-                Delete
               </Button>
             </Modal.Footer>
           </Modal>

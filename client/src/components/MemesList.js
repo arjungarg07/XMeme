@@ -2,12 +2,13 @@ import React from 'react';
 
 import Meme from './Meme';
 
-const MemesList = ({ list, selectMeme }) => (
+const MemesList = ({ list, selectMeme, deleteMeme }) => (
 	<div className="bg-gray-100 border-b mx-auto p-0 grid grid-cols-3">
 		{list && list.length > 0 ? (
 			list.map((details, index) => (
 				<Meme
 					selectMeme = {selectMeme}
+					deleteMeme = {deleteMeme}
 					details = {details}
 					key = {index}
 				/>
