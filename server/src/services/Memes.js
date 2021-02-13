@@ -16,7 +16,6 @@ class Memes {
       attributes: ["id"],
     });
     if (result.length > 0) {
-      console.log('hello ')
       return { status: -1 };
     }
     const {
@@ -51,7 +50,6 @@ class Memes {
         },
       }
     );
-    console.log(result);
     return;
   }
 
@@ -87,7 +85,6 @@ class Memes {
         active: 0
       }
     });
-    console.log(result);
   }
 }
 
