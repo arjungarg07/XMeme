@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const routes = require("../api/routes/index");
+const task = require("../jobs/softDeleteMeme");
 
 module.exports = async ({ app }) => {
   app.get("/status", (req, res) => {
@@ -13,5 +14,6 @@ module.exports = async ({ app }) => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use("/", routes);
+  task.start();
   return app;
 };

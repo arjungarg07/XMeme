@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
-        // defaultValue: 'anonymous'
       },
       url: {
         type: DataTypes.STRING,

@@ -40,7 +40,8 @@ class Memes {
     return { status: 1, result };
   }
 
-  async deleteMemeById(id) {
+  // Implemented Soft Delete
+  async softDeleteMemeById(id) {
     const result = await Meme.update(
       { active: 0 },
       {
@@ -78,6 +79,15 @@ class Memes {
       attributes: ["id", "name", "url", "caption"],
     });
     return result;
+  }
+
+  async hardDeleteMemes() {
+    const result = await Meme.destroy({
+      where: {
+        active: 0
+      }
+    });
+    console.log(result);
   }
 }
 

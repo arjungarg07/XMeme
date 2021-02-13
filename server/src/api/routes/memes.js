@@ -4,6 +4,7 @@ const Memes = require("../../services/Memes");
 
 const route = Router();
 
+// POST request to add Meme to a Collection
 route.post("/memes", async (req, res) => {
   const data = req.body;
   try {
@@ -16,6 +17,7 @@ route.post("/memes", async (req, res) => {
   }
 });
 
+// GET request to get 100 latest Memes
 route.get("/memes", async (req, res) => {
   try {
     const result = await Memes.getAllMemes();
@@ -27,6 +29,7 @@ route.get("/memes", async (req, res) => {
   }
 });
 
+// GET Request to get Meme by Id
 route.get("/memes/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -39,10 +42,11 @@ route.get("/memes/:id", async (req, res) => {
   }
 });
 
+// DELETE Request to delete Meme by Id
 route.delete("/memes/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    await Memes.deleteMemeById(id);
+    await Memes.softDeleteMemeById(id);
     res.sendStatus(200);
   } catch (err) {
     console.log(err);
@@ -51,6 +55,7 @@ route.delete("/memes/:id", async (req, res) => {
   }
 });
 
+// PATCH Request to update Meme by Id
 route.patch("/memes/:id", async (req, res) => {
   const { id } = req.params;
   const data = req.body;
