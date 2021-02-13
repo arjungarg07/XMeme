@@ -2,7 +2,7 @@ import React from 'react';
 
 import Meme from './Meme';
 
-const MemesList = ({ list, selectMeme, deleteMeme }) => (
+const MemesList = ({ list, selectMeme }) => (
 	<div className="bg-gray-100 border-b container mx-auto p-0">
 		{list && list.length > 0 ? (
 			list.map((details, index) => (
@@ -10,7 +10,6 @@ const MemesList = ({ list, selectMeme, deleteMeme }) => (
 					selectMeme = {selectMeme}
 					details = {details}
 					key = {index}
-					deleteMeme = {deleteMeme}
 				/>
 			))
 		) : (

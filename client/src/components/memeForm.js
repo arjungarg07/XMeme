@@ -6,11 +6,6 @@ class MemeForm extends Component {
   constructor(props) {
     console.log(props);
     super(props);
-    this.state = {
-      owner: "",
-      caption: "",
-      url: "",
-    };
   }
 
   handleSubmit = (e) => {
@@ -23,17 +18,13 @@ class MemeForm extends Component {
     
     console.log(data);
     this.props.handleSubmit(data);
-    this.setState = {
-      owner: '',
-      caption: '',
-      url: ''
-    }
+    document.getElementById("meme-form").reset();
   };
 
   render() {
     return (
       <div>
-        <Form
+        <Form id = "meme-form"
           onSubmit={(e) => {
             e.preventDefault();
             this.handleSubmit(e);
@@ -68,7 +59,7 @@ class MemeForm extends Component {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button className = 'h-1/3 my-8' variant="primary" type="submit">
               Submit
             </Button>
           </div>

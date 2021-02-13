@@ -4,6 +4,7 @@ import MemesList from './MemesList';
 import Header from './header';
 import MemeForm from './memeForm';
 import Meme from './Meme';
+import EditModal from './editModal'
 
 
 import {
@@ -21,7 +22,6 @@ export default class MemesContent extends Component {
 		list: [],
 		loading: false,
 		selected: undefined,
-		// isNew: false,
 		showModal: false,
 		totalPages: 1,
 	}
@@ -39,18 +39,32 @@ export default class MemesContent extends Component {
 		})
 	}
 
+	handleEdit = async (data) => {
+		this.setState({
+			loading: true,
+			showModal: false,
+		});
+		const { id } = data;
+		await editMeme(id,data);
+		const list = await getAllMemes();
+		if (!list) {
+			this.setState({
+				loading: false,
+			});
+			return alert('Internal Error');
+		}
+		this.setState({
+			loading: false,
+			list,
+		});
+	}
+
 	handleSubmit = async (data) => {
 		this.setState({
 			loading: true,
-			// isNew: false,
-			showModal: false,
 		});
-		// const { success, message } = id
-		// 	? await editIssue(id, data)
-		// 	: await createIssue(data);
-		console.log('memecontent handle',data);
 		const { id } = await createMeme(data);
-		console.log('id =>',id);
+		// console.log('id =>',id);
 		if (!id) {
 			this.setState({
 				loading: false,
@@ -58,6 +72,26 @@ export default class MemesContent extends Component {
 			return alert('Internal Error');
 		}
 		
+		const list = await getAllMemes();
+		if (!list) {
+			this.setState({
+				loading: false,
+			});
+			return alert('Internal Error');
+		}
+		this.setState({
+			loading: false,
+			list,
+		});
+	};
+
+	deleteMeme = async (id) => {
+		this.setState({
+			loading: true,
+			showModal:false
+		});
+
+		await deleteMeme(id);
 		const list = await getAllMemes();
 		if (!list) {
 			this.setState({
@@ -85,11 +119,19 @@ export default class MemesContent extends Component {
 	};
 
 	render() {
-		const { currentPage, list, loading, selected, showModal, totalPages} = this.state;
+		const { list, loading, selected, showModal } = this.state;
 		return (
 			<div >
 				<Header/>
 				<div className = 'container'>
+				{showModal && (
+					<EditModal
+						active={selected}
+						closeModal={this.closeModal}
+						handleEdit={this.handleEdit}
+						deleteMeme={this.deleteMeme}
+					/>
+				)}
 				<MemeForm 
 					handleSubmit={this.handleSubmit}
 				/>
