@@ -1,15 +1,29 @@
+const { Op } = require("sequelize");
+
 const { Meme } = require("../models");
+
 class Memes {
   constructor() {}
 
   async addMemeToCollection(data) {
-    // const { name, caption, url } = data;
+    const { name, caption, url } = data;
     // valid url regex
+    const result = await Meme.findAll({
+      where: {
+        active: 1,
+        [Op.or]: [{ name: name }, { caption: caption }, { url: url }],
+      },
+      attributes: ["id"],
+    });
+    if (result.length > 0) {
+      console.log('hello ')
+      return { status: -1 };
+    }
     const {
       dataValues: { id },
     } = await Meme.create(data);
     // console.log(id);
-    return id;
+    return { status: 1, id };
   }
 
   async getMemeById(id) {
@@ -42,7 +56,7 @@ class Memes {
   }
 
   async updateMeme(id, data) {
-    const { name, caption, url } = data;
+    const { caption, url } = data;
     await Meme.update(
       { ...(caption && { caption }), ...(url && { url }) },
       {

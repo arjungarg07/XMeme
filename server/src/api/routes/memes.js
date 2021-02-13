@@ -8,8 +8,8 @@ const route = Router();
 route.post("/memes", async (req, res) => {
   const data = req.body;
   try {
-    const id = await Memes.addMemeToCollection(data);
-    res.send({ id: id });
+    const { status, id } = await Memes.addMemeToCollection(data);
+    status == -1 ? res.sendStatus(409) : res.json({ id : id });
   } catch (err) {
     console.log(err);
     res.send({ status: 0, msg: "Failed to add Meme to Collection" });
