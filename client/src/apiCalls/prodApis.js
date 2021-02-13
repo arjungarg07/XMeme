@@ -1,7 +1,7 @@
 import { customFetch } from "../custom-lib";
 
 // const HOST = '';
-const HOST = 'http://localhost:8080';
+const HOST = 'http://localhost:8081';
 
 export const getAllMemes = (params) =>
   customFetch(

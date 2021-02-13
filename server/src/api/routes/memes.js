@@ -12,7 +12,8 @@ route.post("/memes", async (req, res) => {
     status == -1 ? res.sendStatus(409) : res.json({ id : id });
   } catch (err) {
     console.log(err);
-    res.send({ status: 0, msg: "Failed to add Meme to Collection" });
+    // 500: Internal Server Error
+    res.sendStatus(500);
   }
 });
 
@@ -22,7 +23,8 @@ route.get("/memes", async (req, res) => {
     res.json(result);
   } catch (err) {
     console.log(err);
-    res.send({ status: 0, msg: "Failed to fetch Memes" });
+    // 500: Internal Server Error
+    res.sendStatus(500);
   }
 });
 
@@ -33,6 +35,7 @@ route.get("/memes/:id", async (req, res) => {
     status == -1 ? res.sendStatus(404) : res.json(result);
   } catch (err) {
     console.log(err);
+    // 500: Internal Server Error
     res.sendStatus(500);
   }
 });
@@ -41,10 +44,11 @@ route.delete("/memes/:id", async (req, res) => {
   const { id } = req.params;
   try {
     await Memes.deleteMemeById(id);
-    res.send({ status: 1, msg: "Successfully deleted Meme of given id" });
+    res.sendStatus(200);
   } catch (err) {
     console.log(err);
-    res.send({ status: 0, msg: "Failed to delete Meme of given id" });
+    // 500: Internal Server Error
+    res.sendStatus(500);
   }
 });
 
@@ -53,10 +57,11 @@ route.patch("/memes/:id", async (req, res) => {
   const data = req.body;
   try {
     await Memes.updateMeme(id, data);
-    res.send({ status: 1, msg: "Successfully updated Meme of given id" });
+    res.sendStatus(200);
   } catch (err) {
     console.log(err);
-    res.send({ status: 0, msg: "Failed to update Meme of given id" });
+    // 500: Internal Server Error
+    res.sendStatus(500);
   }
 });
 

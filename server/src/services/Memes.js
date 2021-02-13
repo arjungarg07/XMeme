@@ -22,7 +22,6 @@ class Memes {
     const {
       dataValues: { id },
     } = await Meme.create(data);
-    // console.log(id);
     return { status: 1, id };
   }
 
@@ -36,7 +35,7 @@ class Memes {
     });
     if (!result) {
       console.log("Meme not found");
-      return { status: -1, result };
+      return { status: -1 };
     }
     return { status: 1, result };
   }

@@ -2,7 +2,7 @@ require('dotenv').config();
 const loaders = require('./loaders/index');
 const express = require('express');
 
-const PORT = require('./config/index').port || 8080;
+const PORT = require('./config/index').port || 8081;
 
 async function startServer() {
   const app = express();
