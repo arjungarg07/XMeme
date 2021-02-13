@@ -18,7 +18,7 @@ route.post("/memes", async (req, res) => {
 
 route.get("/memes", async (req, res) => {
   try {
-    const result = await getAllMemes();
+    const result = await Memes.getAllMemes();
     res.json(result);
   } catch (err) {
     console.log(err);
