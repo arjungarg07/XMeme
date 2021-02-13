@@ -2,7 +2,7 @@ import React from "react";
 import github from "../assets/images/github.svg";
 
 const Footer = () => (
-  <footer className="text-gray-600 body-font bg-gray-300 inset-x-0 bottom-0">
+  <footer className="text-gray-600 fixed body-font bg-gray-300 inset-x-0 bottom-0">
     <div className="container px-5 py-0 justify-content-around mx-auto flex items-center sm:flex-row flex-col">
       <a
         href="https://www.crio.do/crio-winter-of-doing/"
