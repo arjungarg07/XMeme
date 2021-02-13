@@ -58,7 +58,7 @@ class Memes {
   async updateMeme(id, data) {
     const { caption, url } = data;
     await Meme.update(
-      { ...(caption && { caption }), ...(url && { url }) },
+      { ...(caption && { caption }), ...(url && { url }) }, // Short Circuit Evaluation Technique
       {
         where: {
           id: id,
