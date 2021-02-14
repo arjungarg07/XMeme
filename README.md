@@ -5,8 +5,10 @@
 + MySQL (RDS)
 + Sequelize (Node.js ORM)
 + React (Javascript UI Library)
-+ TailwindCss ( lightweight Css Framework )
++ TailwindCss ( Lightweight Css Framework )
 
+#### Live FrontendURL : https://cwod-xmeme-arjungarg.herokuapp.com/
+#### Live ServerUrl : https://cwod-xmeme-server.herokuapp.com
 # XMeme Server Architecture
 
 ## Modularity
