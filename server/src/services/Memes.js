@@ -34,7 +34,7 @@ class Memes {
         id: id,
         active: 1,
       },
-      attributes: ["id", "name", "url", "caption"],
+      attributes: ["id", "name", "url", "caption", "createdAt"],
     });
     if (!result) {
       console.log("Meme not found");
@@ -86,7 +86,7 @@ class Memes {
       },
       limit: 100,
       order: [["id", "DESC"]],
-      attributes: ["id", "name", "url", "caption"],
+      attributes: ["id", "name", "url", "caption", "createdAt"],
     });
     return result;
   }
