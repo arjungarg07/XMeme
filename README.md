@@ -16,7 +16,7 @@
     │   ├── routes # Express route controllers for all the endpoints of the app
     │   │   ├── index.js
     │   │   └── memes.js
-    │   └── validation # Validation of incming data
+    │   └── validation # Validation of incoming data
     ├── config 
     │   └── index.js
     ├── index.js  # App entry point
