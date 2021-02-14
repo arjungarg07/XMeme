@@ -71,3 +71,9 @@
 1. Server Side Pagination or Infinite Scrolling
 2. We can have a path named weights in our Memes Table so that we can manually control them by increasing the weights of some memes and show them above others.
 3. Writing my own unit and load tests using chai and mocha.
+
+### Live Page
+![Homepage Image](./client/src/assets/images/homepage.png)
+
+### LightHouse Check
+![LightHouse Check](./client/src/assets/images/lighthouse.png)
