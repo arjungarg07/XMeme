@@ -5,6 +5,7 @@
 + MySQL (RDS)
 + Sequelize (Node.js ORM)
 + React (Javascript UI Library)
++ TailwindCss ( lightweight Css Framework )
 
 # XMeme Server Architecture
 
