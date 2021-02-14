@@ -15,6 +15,14 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+    <style>
+        .github-fork-ribbon.left-bottom:before {
+            background-color: #333;
+            cursor: pointer;
+        }
+    </style>
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -39,5 +47,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <a class="github-fork-ribbon left-bottom fixed"  data-ribbon="Fork me on GitHub" title="Fork me on GitHub" onclick="alert('Are You kidding, Crio Contest is going on Man!')">Fork me on GitHub</a>
   </body>
 </html>
