@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-      "description": "This is a simple API",
+      "description": "XMeme Operational APIs",
       "version": "1.0.0",
       "title": "CWoD XMEME API",
       "contact": {
