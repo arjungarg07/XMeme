@@ -1,3 +1,4 @@
+// # Jobs definitions for agenda.js
 const cron = require("node-cron");
 const Memes = require("../services/Memes");
 

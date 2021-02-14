@@ -1,3 +1,4 @@
+//  # Split the startup process into modules
 require("dotenv").config();
 require("../models/index");
 const expressLoader = require("./express");

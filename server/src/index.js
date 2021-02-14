@@ -1,3 +1,4 @@
+// # App entry point
 require("dotenv").config();
 const loaders = require("./loaders/index");
 const express = require("express");

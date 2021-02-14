@@ -1,3 +1,4 @@
+// # Environment variables and configuration related stuff
 module.exports = {
   port: process.env.PORT,
   db: {

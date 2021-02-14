@@ -1,3 +1,4 @@
+// # All the business logic is here
 const { Op } = require("sequelize");
 
 const { Meme } = require("../models");

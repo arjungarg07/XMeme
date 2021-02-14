@@ -1,3 +1,4 @@
+// # Database models using Sequelize ORM
 const Sequelize = require("sequelize");
 const { db } = require("../config/index");
 
