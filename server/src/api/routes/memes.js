@@ -8,6 +8,13 @@ const route = Router();
 route.post("/memes", async (req, res) => {
   const data = req.body;
   try {
+    // URL Validation
+    let { url } = data;
+    const validateUrl = new RegExp(/^(https?:\/\/)?([A-Za-z]+\.)?[A-Za-z0-9]+\.[A-Za-z]+(\/.+)?$/);
+    if(!validateUrl.test(url)){
+      res.sendStatus(422);
+      return;
+    }
     const { status, id } = await Memes.addMemeToCollection(data);
     status == -1 ? res.sendStatus(409) : res.json({ id : id });
   } catch (err) {
