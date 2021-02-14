@@ -25,6 +25,6 @@ apt-get -y install mysql-server-5.6
 mysql_secure_installation
 
 sed -i 's/127\.0\.0\.1/0\.0\.0\.0/g' /etc/mysql/my.cnf
-mysql -uroot -p -e 'USE mysql; UPDATE `user` SET `Host`="localhost" WHERE `User`="root" AND `Host`="localhost"; DELETE FROM `user` WHERE `Host` != "%" AND `User`="root"; CREATE DATABASE mydb; FLUSH PRIVILEGES;'
+mysql -uroot -p -e 'USE mysql; UPDATE `user` SET `Host`="%" WHERE `User`="root" AND `Host`="localhost"; DELETE FROM `user` WHERE `Host` != "%" AND `User`="root"; CREATE DATABASE mydb; FLUSH PRIVILEGES;'
 
 service mysql restart
