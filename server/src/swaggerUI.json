@@ -131,7 +131,7 @@
           "tags": [
             "XMEME"
           ],
-          "summary": "Add a new meme to collection",
+          "summary": "Update an existing meme in collection",
           "description": "Update an existing meme in collection",
           "operationId": "updateMeme",
           "parameters": [
