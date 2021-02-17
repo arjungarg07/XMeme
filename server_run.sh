@@ -11,6 +11,6 @@ fi
 # Setup DB or any other environment variables you want to setup.
 
 
-#npm install
+npm install
 
-#npm start
+npm start
