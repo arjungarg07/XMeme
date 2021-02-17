@@ -15,6 +15,26 @@ ufw allow 3306
 # Install essential packages
 apt-get -y install zsh htop
 
+# Installing NodeJS and NPM
+ 
+ echo "Fetching nvm..."
+ 
+ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+ 
+ chmod +x ~/.nvm/nvm.sh
+ 
+ source ~/.nvm/nvm.sh
+ 
+ echo "Installing node..."
+ 
+ nvm install 12.20.1
+ 
+ npm install -g npm@6.14.8
+ 
+ echo "Installed! 🎉"
+ 
+ node -v && npm -v
+
 # Install MySQL Server in a Non-Interactive mode. Default root password will be "root"
 echo "mysql-server-5.6 mysql-server/root_password password root" | sudo debconf-set-selections
 echo "mysql-server-5.6 mysql-server/root_password_again password root" | sudo debconf-set-selections
