@@ -8,7 +8,7 @@ apt-get update && apt-get upgrade -y
 dpkg-reconfigure -f noninteractive tzdata
 
 # Enable Ubuntu Firewall and allow SSH & MySQL Ports
-ufw enable
+ufw --force enable
 ufw allow 22
 ufw allow 3306
 
